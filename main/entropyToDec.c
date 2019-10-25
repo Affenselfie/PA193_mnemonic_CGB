@@ -7,21 +7,19 @@
 
 
 
-int bitToDec(int* bits, int size) {
+int bitToDec(int* bits, unsigned int size) {
 
 	int ret = 0;
-
-	for (int i = 0; i < size; i++) {
-		ret = ret + bits[i] * (pow(2, (size - i)));
+	for (unsigned int i = 0; i < size; i++)
+	{
+		if (bits[(size-1)-i] == 1)
+		{
+			ret = ret * 2 + 1;
+		}
+		else{ret *= 2;}
+			
 	}
 
 	return ret;
 }
 
-int main() {
-
-	int ret = 0;
-	int bit[11] = { 0,1,1,0,0,1,0,1,1,0,1 };
-	ret = bitToDec(bit, 11);
-	return 0;
-}
