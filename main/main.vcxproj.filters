@@ -18,7 +18,7 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="entropyToDec.c">
+    <ClCompile Include="convNumber.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
