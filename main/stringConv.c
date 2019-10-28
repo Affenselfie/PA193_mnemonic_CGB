@@ -6,6 +6,7 @@
 
 
 
+
 int compare(char* tab, char* word) {
 	int i = 0, cpt = 0;
 	printf("debut processus\n");

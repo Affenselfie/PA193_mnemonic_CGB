@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
 	printf("(1)---> entropy to mnemonic/seed\n(2)---> mnemonic to entropy/seed\n(3)---> mnemonic/seed validation\n\n\n");
 
 
-	int* tabDec = (int*)malloc(sizeof(int) * 11);
+	/*int* tabDec = (int*)malloc(sizeof(int) * 11);
 	memset(tabDec, 0, sizeof(tabDec));
 
 	int* tabBin = (int*)malloc(sizeof(int) * 128);
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
 
 	binToHex(tabBin);
 
-	/*setRandBin(bin, 11);
+	setRandBin(bin, 11);
 	displayBin(bin, 11,11);
 	binArrayToDecArray(bin, 11, tabDec);
 	display(tabDec,11);
@@ -80,5 +80,11 @@ int main(int argc, char** argv) {
 	display(tabDec, 11);
 	decArrayToBinArray(tabDec, 11, bin);
 	displayBin(bin, 11,11);*/
+
+
+	/*
+	
+	
+	*/
 	return 0;
 }
