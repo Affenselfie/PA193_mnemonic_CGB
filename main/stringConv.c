@@ -28,13 +28,6 @@ int* StringToInt(char* CheminFichier, char** listWord){
 					j++;
 				}
 			}
-			Chaine[j] = '\0';
-			printf("debut compare numero %d : %s\n", cpt, Chaine);
-			check = compare(Chaine, word);
-			if (check == 1) {
-				compteur = cpt;
-			}
-			printf("check : %d\n", check);
 		}
 		else perror("\n\n MemoriserFicher ");
 	}
@@ -77,4 +70,3 @@ char** findWord(int* nb, char* cheminFichier) {
 	fclose(file);
 	return result;
 }
-
