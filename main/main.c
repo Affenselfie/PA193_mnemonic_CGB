@@ -83,7 +83,13 @@ int main(int argc, char** argv) {
 
 
 	/*
+	#define FILE "C:/User/userName/desktop/wordlist.txt"
+
+	int* tabInt[12];
+	char** tabChar[12][50];
 	
+	tabInt = StringToInt(FILE, tabChar); //FILE = chemin d'acces du fichier -- tabChar = matrice comportant les mots dont on souhaite trouver les entiers correspondant
+	tabChar = findWord(tabInt, FILE);
 	
 	*/
 	return 0;
