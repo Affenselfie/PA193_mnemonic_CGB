@@ -36,6 +36,7 @@ void setRandBin(int** binTab, size_t size) {
 int* Init(size_t size){
 	int* tab = (int*)malloc(sizeof(int)*size);
 	memset(tab, 0, sizeof(tab));
+	for(int i=0; i<size;i++) tab[i]=0;
 
 	return tab;
 }
