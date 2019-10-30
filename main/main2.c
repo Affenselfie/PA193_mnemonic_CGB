@@ -74,7 +74,7 @@ int main(void) {
 					viderBuffer();
 					printf("enter entropy:\n");
 					fgets(entropy, 32, stdin);
-					//findWord(/*fonction qui converti hexa en entiers*/, /*cheminFichier*/);s
+					//resultChar = findWord(/*fonction qui converti hexa en entiers*/, /*cheminFichier*/);s
 					break;
 				default:
 					printf("Choose 1 or 2 please\n");
@@ -106,6 +106,8 @@ int main(void) {
 	free(choice);
 	free(mnemonic);
 	free(seed);
+	free(resultChar);
+	free(resultInt);
 
 	return -1;
 }
