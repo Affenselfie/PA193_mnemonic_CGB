@@ -46,9 +46,8 @@ void binArrayToDecArray(int** binArray, size_t size, size_t sizeBin, int* decArr
 	
 }
 
-int* decToBin(int nbr, int* nbrBin) {
+void decToBin(int nbr, int* nbrBin, size_t size) {
 	int tab[11], i;
-	memset(tab, 0, sizeof(tab));
 
 	for (i = 0; nbr > 0; i++)
 	{
@@ -57,15 +56,13 @@ int* decToBin(int nbr, int* nbrBin) {
 	}
 	for (i = i - 1; i >= 0; i--)
 	{
-		nbrBin[i] = tab[i];
+		nbrBin[(size-1)-i] = tab[i];
 	}
-
-	return nbrBin;
 }
 
 void decArrayToBinArray(int * decArray, size_t size, int ** binArray) {
 	for (unsigned int i = 0; i < size; i++) {
-		binArray[i] = decToBin(decArray[i], binArray[i]);
+		decToBin(decArray[i], binArray[i],11);
 	}
 }
 
@@ -182,32 +179,30 @@ int* HexToBin(char* hexdec)
 }
 
 
-
-void split(int **dest, int* src, int* cs,size_t size){
+void split(int **dest, int* src ,size_t size, size_t sizeBits){
 	unsigned int j=0;
 	for(unsigned int i=0; i< size; i++){
-		cpyTab(dest[i],&src[j], 11);
-		j +=11;
+		cpyTab(dest[i],&src[j], sizeBits);
+		j +=sizeBits;
 	}
-	cpyTab(cs,&src[j], 7);
-	displayBin(dest,11,11);
+	//displayBin(dest,12,11);
 }
 
 void unsplit(int* dest, int ** src, size_t size){
 	unsigned int j = 0;
 
 	for(unsigned int i=0; i<size; i++){
-		cpyTab(&dest[j],src[i],size);
-		j+=size;
+		cpyTab(&dest[j],src[i],11);
+		j+=11;
 	}
-	display(dest,128);
+	display(dest,132);
 }
 
 void binToHex(int* bin, size_t nbChar){
 
 	int tmp[4];
 
-	for(unsigned int i=0; i< 128; i=i+4){
+	for(unsigned int i=0; i< nbChar; i=i+4){
 		cpyTab(tmp, &bin[i], 4);
 		printf("%x", binToDec(tmp, 4));
 	}
