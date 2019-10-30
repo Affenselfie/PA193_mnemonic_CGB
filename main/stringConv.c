@@ -4,12 +4,12 @@
 
 #define sizeWordMax 50
 
-int* StringToInt(char* CheminFichier, char** listWord){
-	int j = 0, check=0;
+int* StringToInt(char* CheminFichier, char** listWord, int* result){
+	int* j = (int*)malloc(sizeof(int));
+	*j = 0;
 	char* Chaine = (char*)malloc(sizeWordMax * sizeof(char));
-	int* result = (int*)malloc(12 * sizeof(int));
 	FILE* Fichier = fopen(CheminFichier, "r");
-	int cpt = 0, compteur = 0;
+	int cpt = 0;
 	for (int i = 0; i < 12; i++) {
 		if (Fichier != NULL && Chaine != NULL)
 		{
@@ -17,29 +17,31 @@ int* StringToInt(char* CheminFichier, char** listWord){
 			while (fscanf(Fichier, "%c", &c) != EOF)
 			{
 				if (c == '\n' || c == EOF) {
-					Chaine[j] = '\0';
+					Chaine[*j] = '\0';
 					if (strcmp(Chaine, listWord[i]) == 0) {
 						result[i] = cpt;
 					}
 					else cpt++;
 				}
 				else {
-					Chaine[j] = c;
-					j++;
+					Chaine[*j] = c;
+					*j++;
 				}
 			}
 		}
 		else perror("\n\n MemoriserFicher ");
 	}
 	fclose(Fichier);
+	free(j);
+	free(Chaine);
 	return result;
 }
 
 
-char** findWord(int* nb, char* cheminFichier) {
+char** findWord(int* nb, char* cheminFichier, char** result) {
 	int cpt, j = 0;
 	char* Chaine = (char*)malloc(sizeWordMax * sizeof(char));
-	char** result[12][sizeWordMax];
+
 	FILE* file = NULL;
 	file = fopen(cheminFichier, "r");
 	if (file != NULL) {
@@ -57,7 +59,7 @@ char** findWord(int* nb, char* cheminFichier) {
 					j = 0;
 					cpt++;
 					if (cpt == nb[i]) {
-						result[i]=Chaine;
+						strcpy(result[i], Chaine);
 					}
 				}
 				else {
