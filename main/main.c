@@ -1,96 +1,115 @@
-/** PROJECT SECURE CODING BIP39
-
-AUTHORS: DE BAILLIENCOURT Evann / HAMAILI Stéphane
-
-
-**/
-
 #include <stdlib.h>
 #include <stdio.h>
-
-#define NB_BITS 11
-#define NB_SPLIT 11
-
-
-
-int main(int argc, char** argv) {
-	printf("\n\n============ PROJECT SECURE BIP39 ============\n");
-	printf("Choose :\n");
-	printf("(1)---> entropy to mnemonic/seed\n(2)---> mnemonic to entropy/seed\n(3)---> mnemonic/seed validation\n\n\n");
+#include <string.h>
+#include <math.h>
+#include <memory.h>
+#include <time.h>
+#include <openssl/sha.h>
+#include "Init.h"
+#include "convNum.h"
+#include "stringConv.h"
 
 
-	/*int* tabDec = (int*)malloc(sizeof(int) * 11);
-	memset(tabDec, 0, sizeof(tabDec));
+void choice1(char* hexInput){
 
-	int* tabBin = (int*)malloc(sizeof(int) * 128);
-	memset(tabBin, 0, sizeof(tabBin));
+	int* tabDec = Init(12);
+	int* tabBin = Init(128);
+	int* csF = Init(11);
+	int* cs = Init(7);
+	int** bin= InitTab(11,11);
 
-	int* cs = (int*)malloc(sizeof(int) * 7);
-	memset(cs, 0, sizeof(cs));
+	char *binC=(char*)malloc(sizeof(char)*128);
 
-
-	int** bin = (int**)malloc(sizeof(int*) * 11);
-	for (int i = 0; i < 11; i++) {
-		bin[i] = (int*)malloc(sizeof(int) * 11);
-		memset(bin[i], 0, sizeof(bin[i]));
+	char** resultChar = (char**)malloc(12 * sizeof(char*));
+	for (int i = 0; i < 12; i++) {
+		resultChar[i] = (char*)malloc(sizeWordMax * sizeof(char));
 	}
 
-
-	char* hexInput = (char*)malloc(sizeof(char) * 32);
-
-	hexInput = "9e885d952ad362caeb4efe34a8e91bd2";
-
-	for (unsigned int i = 0; i < strlen(hexInput); i++) {
-		printf("%c", hexInput[i]);
+	printf("Hex Input: ");
+	for(unsigned int i=0; i<strlen(hexInput); i++){
+		printf("%c",hexInput[i]);
 	}
 	printf("\n\n");
 
 	tabBin = HexToBin(hexInput);
 
-	//display(tabBin, 128);
+	printf("Convert binary : ");
+
+	display(tabBin, 128);
+
+	printf("\nSplit in 11 cluster:\n");
 
 	split(bin, tabBin, cs, 11);
 
-	displayBin(bin, 11, 11);
+	binArrayToDecArray(bin,11,11,tabDec);
 
-	printf("\n\n");
+	printf("\nInitial checksum :\t");
 
-	binArrayToDecArray(bin, 11, 11, tabDec);
+	display(cs,7);
 
-	display(tabDec, 11);
+	printf("\n");
 
-	printf("\nchecksum :\t");
+	char *tmp = (char*)malloc(sizeof(char)*2);
 
-	display(cs, 7);
+	for (unsigned int i = 0; i < 128; i++){
+		sprintf(tmp, "%d", tabBin[i]);
+		strcat(binC, tmp );
+	}
 
-	printf("\n\n");
+	printf("binC: %s\n", binC);
 
-	unsplit(tabBin, bin, 11);
+	unsigned char *d = SHA256(binC, strlen(binC), 0);
+ 	
+ 	char** string = (char**)malloc(sizeof(char*)*32);
+ 	for(int i =0; i<32; i++){
+ 		string[i] = (char*)malloc(sizeof(char)*4);
+ 	}
 
-	printf("\n\n");
+ 	printf("\nhashage:");
 
-	binToHex(tabBin);
+	for (unsigned int i = 0; i < SHA256_DIGEST_LENGTH; i++){
+		printf("%02x", d[i]);
+	}
+	putchar('\n');
 
-	setRandBin(bin, 11);
-	displayBin(bin, 11,11);
-	binArrayToDecArray(bin, 11, tabDec);
-	display(tabDec,11);
+	for (unsigned int i = 0; i < SHA256_DIGEST_LENGTH; i++){
+		sprintf(string[i],"%x",d[i]);
+	}
 
-	setRandDec(tabDec, 11);
-	display(tabDec, 11);
-	decArrayToBinArray(tabDec, 11, bin);
-	displayBin(bin, 11,11);*/
+	int* h = (int*)malloc(sizeof(int)*4);
+
+	h=HexToBinC(string[0][0]);
+	printf("\n");
+	cpyTab(csF, h,4);
+	cpyTab(&csF[4], cs, 7);
+
+	printf("Checksum :");
+
+	display(csF, 11);
+
+	tabDec[11] = binToDec(csF,11);
+	printf("\nDecimal Array: ");
+	display(tabDec, 12);
+
+	resultChar = findWord(tabDec,"wordlist.txt", resultChar); 
 
 
-	/*
-	#define FILE "C:/User/userName/desktop/wordlist.txt"
+}
 
-	int* tabInt[12];
-	char** tabChar[12][50];
-	
-	tabInt = StringToInt(FILE, tabChar); //FILE = chemin d'acces du fichier -- tabChar = matrice comportant les mots dont on souhaite trouver les entiers correspondant
-	tabChar = findWord(tabInt, FILE);
-	
-	*/
+
+
+int main(int argc, char** argv) {
+
+	printf("\n\n============ PROJECT SECURE BIP39 ============\n");
+	printf("Choose :\n");
+	printf("(1)---> entropy to mnemonic/seed\n(2)---> mnemonic to entropy/seed\n(3)---> mnemonic/seed validation\n\n\n");
+
+	char* hexInput= (char*)malloc(sizeof(char)*32);
+
+	hexInput = "9e885d952ad362caeb4efe34a8e91bd2";
+
+	choice1(hexInput);
+
+
 	return 0;
 }
