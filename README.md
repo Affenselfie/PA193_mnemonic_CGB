@@ -1,2 +1,2 @@
 # PA193_mnemonic_CGB
-project secure codding
+project secure coding
