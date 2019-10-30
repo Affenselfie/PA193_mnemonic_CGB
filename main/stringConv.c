@@ -3,37 +3,40 @@
 #include <string.h>
 
 #define sizeWordMax 50
-
 int* StringToInt(char* CheminFichier, char** listWord, int* result){
-	int* j = (int*)malloc(sizeof(int));
-	*j = 0;
+	int j = 0, cpt;
 	char* Chaine = (char*)malloc(sizeWordMax * sizeof(char));
-	FILE* Fichier = fopen(CheminFichier, "r");
-	int cpt = 0;
+	FILE* file = fopen(CheminFichier, "r");
+	if(file!=NULL){
+		printf("file openning ok\n");
+
+	}
 	for (int i = 0; i < 12; i++) {
-		if (Fichier != NULL && Chaine != NULL)
+		if (file != NULL && Chaine != NULL)
 		{
+			fseek(file,0,SEEK_SET);
+			cpt=0;
 			char c;
-			while (fscanf(Fichier, "%c", &c) != EOF)
+			while (fscanf(file, "%c", &c) != EOF)
 			{
 				if (c == '\n' || c == EOF) {
-					Chaine[*j] = '\0';
+					Chaine[j] = '\0';
 					if (strcmp(Chaine, listWord[i]) == 0) {
 						result[i] = cpt;
+						printf("the word %s is the number : %d\n", Chaine, cpt);
 					}
 					else cpt++;
+					j=0;
 				}
 				else {
-					Chaine[*j] = c;
-					*j++;
+					Chaine[j] = c;
+					j++;
 				}
 
 			}
 		}
-		else perror("\n\n MemoriserFicher ");
 	}
-	fclose(Fichier);
-	free(j);
+	fclose(file);
 	free(Chaine);
 	return result;
 }
@@ -46,24 +49,22 @@ char** findWord(int* nb, char* cheminFichier, char** result) {
 	FILE* file = NULL;
 	file = fopen(cheminFichier, "r");
 	if (file != NULL) {
-		printf("ouverture du fichier OK\n");
+		printf("File opening: OK\n");
 	}
 	 if (file != NULL && Chaine != NULL){
 		for(int i = 0; i<12;i++)
 		{
 			fseek(file,0,SEEK_SET);
-			printf("enter for\n");
 			char c;
-			while (fscanf(file, "%c", &c) != EOF)
+			cpt = 0;
+			while (fscanf(file, "%c", &c) != EOF && cpt <= nb[i])
 			{
 				if (c == '\n' || c == EOF) {
 					Chaine[j] = '\0';
 					j = 0;
 					if (cpt == nb[i]) {
 						strcpy(result[i], Chaine);
-						printf("Le mot numero %d est : %s\n", cpt, result[i]);
-						cpt=0;
-						printf("%d",i);
+						printf("Word's number %d is : %s\n", cpt, result[i]);
 					}
 					cpt++;
 				}
@@ -75,5 +76,6 @@ char** findWord(int* nb, char* cheminFichier, char** result) {
 		}
 		}
 	fclose(file);
+	free(Chaine);
 	return result;
 }
