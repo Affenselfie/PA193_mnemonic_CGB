@@ -27,6 +27,7 @@ int* StringToInt(char* CheminFichier, char** listWord, int* result){
 					Chaine[*j] = c;
 					*j++;
 				}
+
 			}
 		}
 		else perror("\n\n MemoriserFicher ");
@@ -47,20 +48,24 @@ char** findWord(int* nb, char* cheminFichier, char** result) {
 	if (file != NULL) {
 		printf("ouverture du fichier OK\n");
 	}
-	for (int i = 0; i < 12; i++) {
-		if (file != NULL && Chaine != NULL)
+	 if (file != NULL && Chaine != NULL){
+		for(int i = 0; i<12;i++)
 		{
+			fseek(file,0,SEEK_SET);
+			printf("enter for\n");
 			char c;
 			while (fscanf(file, "%c", &c) != EOF)
 			{
 				if (c == '\n' || c == EOF) {
 					Chaine[j] = '\0';
-					printf("Le mot numero %d est : %s\n", cpt, Chaine);
 					j = 0;
-					cpt++;
 					if (cpt == nb[i]) {
 						strcpy(result[i], Chaine);
+						printf("Le mot numero %d est : %s\n", cpt, result[i]);
+						cpt=0;
+						printf("%d",i);
 					}
+					cpt++;
 				}
 				else {
 					Chaine[j] = c;
@@ -68,7 +73,7 @@ char** findWord(int* nb, char* cheminFichier, char** result) {
 				}
 			}
 		}
-	}
+		}
 	fclose(file);
 	return result;
 }
