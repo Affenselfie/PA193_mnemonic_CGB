@@ -2,13 +2,41 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "hashFct.h"
+
 #define sizeWordMax 50
+
+
+
+
+void conv(char** tab, char* Conv){
+	int j=0, cpt=0;
+	for (int i=0; i<12; i++){
+		j=0;
+		while(tab[i][j] != '\n' && tab[i][j] != '\0'){
+			Conv[cpt]=tab[i][j];
+			j++;
+			cpt++;
+		}
+	}
+	Conv[cpt]='\0';
+	//printf("\n%s", Conv);
+}
+
+
+
 int* StringToInt(char* CheminFichier, char** listWord, int* result){
 	int j = 0, cpt;
 	char* Chaine = (char*)malloc(sizeWordMax * sizeof(char));
+	char** seedString = (char**)malloc(12 * sizeof(char*));
+	for (int i = 0; i < 12; i++) {
+		seedString[i] = (char*)malloc(sizeWordMax * sizeof(char));
+	}
+
+	char* seed = (char*)malloc(sizeof(char)*sizeWordMax*12);
 	FILE* file = fopen(CheminFichier, "r");
 	if(file!=NULL){
-		printf("file openning ok\n");
+		printf("\nFile openning ok\n");
 
 	}
 	for (int i = 0; i < 12; i++) {
@@ -23,6 +51,7 @@ int* StringToInt(char* CheminFichier, char** listWord, int* result){
 					Chaine[j] = '\0';
 					if (strcmp(Chaine, listWord[i]) == 0) {
 						result[i] = cpt;
+						strcpy(seedString[i],Chaine);
 						printf("the word %s is the number : %d\n", Chaine, cpt);
 					}
 					else cpt++;
@@ -37,6 +66,8 @@ int* StringToInt(char* CheminFichier, char** listWord, int* result){
 		}
 	}
 	fclose(file);
+	conv(seedString,seed);
+	Seed(seed, strlen(seed),"mnemonic", 8,1,64);
 	free(Chaine);
 	return result;
 }
@@ -45,6 +76,7 @@ int* StringToInt(char* CheminFichier, char** listWord, int* result){
 char** findWord(int* nb, char* cheminFichier, char** result) {
 	int cpt, j = 0;
 	char* Chaine = (char*)malloc(sizeWordMax * sizeof(char));
+
 
 	FILE* file = NULL;
 	file = fopen(cheminFichier, "r");

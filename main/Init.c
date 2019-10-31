@@ -51,6 +51,50 @@ int ** InitTab(size_t sizeH, size_t sizeL){
 	return tab;
 }
 
+int controlHexIn(char* hexInput){
+	char* hexTable = (char*)malloc(sizeof(char)*22);
+
+	int cmp=0;
+
+	hexTable = "0123456789abcdefABCDEF";
+for(unsigned int i=0; i<strlen(hexInput); i++){
+		for(unsigned int j=0; j<strlen(hexTable);j++){
+			if(hexInput[i] == hexTable[j]){
+				cmp++;
+			}
+		}
+	}
+
+	if(cmp != strlen(hexInput)){
+		printf("Error hex Input");
+		return -1;
+	}
+
+	return 0;
+}
+
+int controlBinIn(char* binInput){
+	char* binTable = (char*)malloc(sizeof(char)*2);
+
+	int cmp=0;
+
+	binTable = "01";
+for(unsigned int i=0; i<strlen(binInput); i++){
+		for(unsigned int j=0; j<strlen(binTable);j++){
+			if(binInput[i] == binTable[j]){
+				cmp++;
+			}
+		}
+	}
+
+	if(cmp != strlen(binInput)){
+		printf("Error bin Input");
+		return -1;
+	}
+
+	return 0;
+}
+
 void FreeMat(int** tab, size_t sizeH){
 	for(int i =0; i<sizeH; i++){
 		free(tab[i]);

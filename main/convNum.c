@@ -162,7 +162,6 @@ int* HexToBin(char* hexdec)
 { 
 	int* bin= (int*)malloc(sizeof(int)*128);
 	int* tmp= (int*)malloc(sizeof(int)*4);
-	memset(bin, 0, sizeof(bin));
 
     long int i = 0;
     int  j=0;
@@ -207,4 +206,12 @@ void binToHex(int* bin, size_t nbChar){
 		printf("%x", binToDec(tmp, 4));
 	}
 	printf("\n");
+}
+
+
+void binStringToInt(char* binString, int* binInt){
+	for(int i =0; i< strlen(binString); i++){
+		if(binString[i] == '0'){binInt[i]=0;}
+		else{binInt[i] =1;}
+	}
 }

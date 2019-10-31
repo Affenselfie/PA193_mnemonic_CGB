@@ -10,3 +10,5 @@ void setRandDec(int* decTab, size_t size);
 void setRandBin(int** binTab, size_t size);
 int* Init(size_t size);
 int ** InitTab(size_t sizeH, size_t sizeL);
+int controlHexIn(char* hexInput);
+int controlBinIn(char* binInput);
