@@ -1,0 +1,28 @@
+[../../main/Init.c:55] -> [../../main/Init.c:59]: (style) Variable 'hexTable' is reassigned a value before the old one has been used.
+[../../main/Init.c:77] -> [../../main/Init.c:81]: (style) Variable 'binTable' is reassigned a value before the old one has been used.
+[../../main/Init.c:38]: (warning) Size of pointer 'tab' used instead of size of its data.
+[../../main/Init.c:59]: (error) Memory leak: hexTable
+[../../main/Init.c:81]: (error) Memory leak: binTable
+[../../main/choice.c:21] -> [../../main/choice.c:47]: (style) Variable 'tabBin' is reassigned a value before the old one has been used.
+[../../main/choice.c:86] -> [../../main/choice.c:90]: (style) Variable 'h' is reassigned a value before the old one has been used.
+[../../main/choice.c:169] -> [../../main/choice.c:173]: (style) Variable 'h' is reassigned a value before the old one has been used.
+[../../main/choice.c:59]: (error) Memory is allocated but not initialized: binC
+[../../main/convNum.c:79]: (warning) Size of pointer 'bin' used instead of size of its data.
+[../../main/main.c:36]: (style) The scope of the variable 'ch' can be reduced.
+[../../main/main.c:30] -> [../../main/main.c:79]: (style) Local variable mnemonic shadows outer variable
+[../../main/main.c:43]: (error) Buffer is accessed out of bounds.
+[../../main/main.c:51]: (error) Buffer is accessed out of bounds.
+[../../main/main.c:82]: (warning) scanf() without field width limits can crash with huge input data.
+[../../main/main.c:92]: (warning) scanf() without field width limits can crash with huge input data.
+[../../main/main.c:97]: (warning) scanf() without field width limits can crash with huge input data.
+[../../main/main.c:42]: (error) Memory is allocated but not initialized: choice
+[../../main/stringConv.c:83] -> [../../main/stringConv.c:110]: (warning) Either the condition 'file!=NULL' is redundant or there is possible null pointer dereference: file.
+[../../main/stringConv.c:13]: (style) The scope of the variable 'j' can be reduced.
+[../../main/stringConv.c:77]: (style) The scope of the variable 'cpt' can be reduced.
+[../../main/stringConv.c:77]: (style) The scope of the variable 'j' can be reduced.
+[../../main/Init.c:98]: (style) The function 'FreeMat' is never used.
+[../../main/fastpbkdf2.c:379]: (style) The function 'fastpbkdf2_hmac_sha1' is never used.
+[../../main/fastpbkdf2.c:395]: (style) The function 'fastpbkdf2_hmac_sha512' is never used.
+[../../main/Init.c:21]: (style) The function 'setRandBin' is never used.
+[../../main/Init.c:11]: (style) The function 'setRandDec' is never used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)

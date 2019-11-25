@@ -1,0 +1,4204 @@
+Input: Valid Entropy as Hex
+
+
+Entropy: A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1
+
+Output: segmentation fault.
+
+
+
+Valgrind:
+
+<?xml version="1.0"?>
+
+<valgrindoutput>
+
+<protocolversion>4</protocolversion>
+<protocoltool>memcheck</protocoltool>
+
+<preamble>
+  <line>Memcheck, a memory error detector</line>
+  <line>Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.</line>
+  <line>Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info</line>
+  <line>Command: /home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</line>
+</preamble>
+
+<pid>10823</pid>
+<ppid>8923</ppid>
+<tool>memcheck</tool>
+
+<args>
+  <vargv>
+    <exe>/usr/bin/valgrind.bin</exe>
+    <arg>--tool=memcheck</arg>
+    <arg>--xml=yes</arg>
+    <arg>--xml-file=/tmp/valgrind</arg>
+    <arg>--gen-suppressions=all</arg>
+    <arg>--leak-check=full</arg>
+    <arg>--leak-resolution=med</arg>
+    <arg>--track-origins=yes</arg>
+    <arg>--vgdb=no</arg>
+  </vargv>
+  <argv>
+    <exe>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</exe>
+  </argv>
+</args>
+
+<status>
+  <state>RUNNING</state>
+  <time>00:00:00:00.145 </time>
+</status>
+
+<error>
+  <unique>0x0</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x10CE92</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>42</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10CAEE</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>29</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x1</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 1</what>
+  <stack>
+    <frame>
+      <ip>0x4C51062</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>fgets</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iofgets.c</file>
+      <line>60</line>
+    </frame>
+    <frame>
+      <ip>0x10CBB0</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>43</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4dcd041 is 0 bytes after a block of size 1 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10CAEE</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>29</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr1</skind>
+    <sframe> <fun>fgets</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:fgets
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr1</skind>
+    <sframe> <fun>fgets</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:fgets
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x2</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x10CD14</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>49</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10CB26</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>33</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x3</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 1</what>
+  <stack>
+    <frame>
+      <ip>0x4C51062</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>fgets</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iofgets.c</file>
+      <line>60</line>
+    </frame>
+    <frame>
+      <ip>0x10CC30</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>51</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4dcd461 is 0 bytes after a block of size 1 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10CB26</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>33</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr1</skind>
+    <sframe> <fun>fgets</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:fgets
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr1</skind>
+    <sframe> <fun>fgets</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   fun:fgets
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x4</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32029</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x109495</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>49</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x5</unique>
+  <tid>1</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2DD1E</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>_itoa_word</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>_itoa.c</file>
+      <line>179</line>
+    </frame>
+    <frame>
+      <ip>0x4C315F3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x109495</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>49</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Value8</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Value8</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x6</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C2DD29</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>_itoa_word</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>_itoa.c</file>
+      <line>179</line>
+    </frame>
+    <frame>
+      <ip>0x4C315F3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x109495</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>49</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x7</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32213</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x109495</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>49</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x8</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C3175D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x109495</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>49</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x18</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4838946</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>strcat</fn>
+      <dir>./memcheck/../shared</dir>
+      <file>vg_replace_strmem.c</file>
+      <line>309</line>
+    </frame>
+    <frame>
+      <ip>0x1094FC</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>59</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x1093B0</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>24</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>strcat</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:strcat
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>strcat</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:strcat
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x19</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32029</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C53320</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vsprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iovsprintf.c</file>
+      <line>42</line>
+    </frame>
+    <frame>
+      <ip>0x4C39773</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>sprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>sprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x1094E9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>58</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x1a</unique>
+  <tid>1</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2DD1E</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>_itoa_word</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>_itoa.c</file>
+      <line>179</line>
+    </frame>
+    <frame>
+      <ip>0x4C315F3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C53320</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vsprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iovsprintf.c</file>
+      <line>42</line>
+    </frame>
+    <frame>
+      <ip>0x4C39773</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>sprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>sprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x1094E9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>58</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Value8</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Value8</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x1b</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C2DD29</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>_itoa_word</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>_itoa.c</file>
+      <line>179</line>
+    </frame>
+    <frame>
+      <ip>0x4C315F3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C53320</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vsprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iovsprintf.c</file>
+      <line>42</line>
+    </frame>
+    <frame>
+      <ip>0x4C39773</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>sprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>sprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x1094E9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>58</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x1c</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32213</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C53320</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vsprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iovsprintf.c</file>
+      <line>42</line>
+    </frame>
+    <frame>
+      <ip>0x4C39773</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>sprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>sprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x1094E9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>58</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x1d</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C3175D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C53320</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vsprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iovsprintf.c</file>
+      <line>42</line>
+    </frame>
+    <frame>
+      <ip>0x4C39773</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>sprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>sprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x1094E9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>58</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>vsprintf</fun> </sframe>
+    <sframe> <fun>sprintf</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x2d</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x10A120</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>cpyTab</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>71</line>
+    </frame>
+    <frame>
+      <ip>0x1096AC</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>97</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4dcf950 is 0 bytes after a block of size 512 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>cpyTab</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:cpyTab
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>cpyTab</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:cpyTab
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x31</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32029</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x1096BD</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>99</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x34</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32213</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x1096BD</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>99</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x35</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C3175D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x1096BD</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>99</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x45</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x109E1B</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x1096BD</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>99</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4dcf950 is 0 bytes after a block of size 512 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x49</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x10A11E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>cpyTab</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>71</line>
+    </frame>
+    <frame>
+      <ip>0x10A734</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>split</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>184</line>
+    </frame>
+    <frame>
+      <ip>0x1096E3</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>103</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4dcf950 is 0 bytes after a block of size 512 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>cpyTab</fun> </sframe>
+    <sframe> <fun>split</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:cpyTab
+   fun:split
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>cpyTab</fun> </sframe>
+    <sframe> <fun>split</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:cpyTab
+   fun:split
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x4d</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32029</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109EB1</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>displayBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>20</line>
+    </frame>
+    <frame>
+      <ip>0x1096F9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>104</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x4e</unique>
+  <tid>1</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2DD1E</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>_itoa_word</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>_itoa.c</file>
+      <line>179</line>
+    </frame>
+    <frame>
+      <ip>0x4C315F3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109EB1</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>displayBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>20</line>
+    </frame>
+    <frame>
+      <ip>0x1096F9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>104</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Value8</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Value8</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x4f</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C2DD29</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>_itoa_word</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>_itoa.c</file>
+      <line>179</line>
+    </frame>
+    <frame>
+      <ip>0x4C315F3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109EB1</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>displayBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>20</line>
+    </frame>
+    <frame>
+      <ip>0x1096F9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>104</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>_itoa_word</fun> </sframe>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x50</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32213</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109EB1</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>displayBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>20</line>
+    </frame>
+    <frame>
+      <ip>0x1096F9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>104</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x51</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C3175D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109EB1</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>displayBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>20</line>
+    </frame>
+    <frame>
+      <ip>0x1096F9</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>104</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>displayBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:displayBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x61</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32029</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x109738</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>109</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x68</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32213</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x109738</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>109</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x69</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C3175D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1637</line>
+    </frame>
+    <frame>
+      <ip>0x4C39605</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>printf</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/stdio-common</dir>
+      <file>printf.c</file>
+      <line>33</line>
+    </frame>
+    <frame>
+      <ip>0x109E2F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>display</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x109738</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>109</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A63E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>163</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Cond</skind>
+    <sframe> <fun>vfprintf</fun> </sframe>
+    <sframe> <fun>printf</fun> </sframe>
+    <sframe> <fun>display</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   fun:vfprintf
+   fun:printf
+   fun:display
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x6a</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x4C507E4</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>fclose@@GLIBC_2.2.5</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iofclose.c</file>
+      <line>48</line>
+    </frame>
+    <frame>
+      <ip>0x10D3BA</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>findWord</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>stringConv.c</file>
+      <line>110</line>
+    </frame>
+    <frame>
+      <ip>0x109759</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>112</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x0 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>fclose@@GLIBC_2.2.5</fun> </sframe>
+    <sframe> <fun>findWord</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:fclose@@GLIBC_2.2.5
+   fun:findWord
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Addr4</skind>
+    <sframe> <fun>fclose@@GLIBC_2.2.5</fun> </sframe>
+    <sframe> <fun>findWord</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   fun:fclose@@GLIBC_2.2.5
+   fun:findWord
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<fatal_signal>
+  <tid>1</tid>
+  <signo>11</signo>
+  <signame>SIGSEGV</signame>
+  <sicode>1</sicode>
+  <event>Access not within mapped region</event>
+  <siaddr>0x0</siaddr>
+  <stack>
+    <frame>
+      <ip>0x4C507E4</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libc-2.28.so</obj>
+      <fn>fclose@@GLIBC_2.2.5</fn>
+      <dir>/build/glibc-vjB4T1/glibc-2.28/libio</dir>
+      <file>iofclose.c</file>
+      <line>48</line>
+    </frame>
+    <frame>
+      <ip>0x10D3BA</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>findWord</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>stringConv.c</file>
+      <line>110</line>
+    </frame>
+    <frame>
+      <ip>0x109759</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>112</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+</fatal_signal>
+
+
+<status>
+  <state>FINISHED</state>
+  <time>00:00:00:10.924 </time>
+</status>
+
+<error>
+  <unique>0x6f</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>16 bytes in 1 blocks are definitely lost in loss record 5 of 26</text>
+    <leakedbytes>16</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A64C</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>164</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>HexToBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:HexToBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>HexToBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:HexToBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x70</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>16 bytes in 1 blocks are definitely lost in loss record 6 of 26</text>
+    <leakedbytes>16</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x109634</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>86</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x71</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>22 bytes in 1 blocks are definitely lost in loss record 7 of 26</text>
+    <leakedbytes>22</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10C8E8</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>controlHexIn</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>Init.c</file>
+      <line>55</line>
+    </frame>
+    <frame>
+      <ip>0x10CC8B</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>57</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>controlHexIn</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:controlHexIn
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>controlHexIn</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:controlHexIn
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x7d</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>496 bytes in 31 blocks are definitely lost in loss record 19 of 26</text>
+    <leakedbytes>496</leakedbytes>
+    <leakedblocks>31</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10A14E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBinC</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>78</line>
+    </frame>
+    <frame>
+      <ip>0x10A681</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>HexToBin</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>convNum.c</file>
+      <line>172</line>
+    </frame>
+    <frame>
+      <ip>0x109480</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>47</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>HexToBinC</fun> </sframe>
+    <sframe> <fun>HexToBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:HexToBinC
+   fun:HexToBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>HexToBinC</fun> </sframe>
+    <sframe> <fun>HexToBin</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:HexToBinC
+   fun:HexToBin
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<error>
+  <unique>0x81</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>528 bytes in 1 blocks are definitely lost in loss record 23 of 26</text>
+    <leakedbytes>528</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x483577F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+      <dir>./coregrind/m_replacemalloc</dir>
+      <file>vg_replace_malloc.c</file>
+      <line>299</line>
+    </frame>
+    <frame>
+      <ip>0x10C817</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>Init</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>Init.c</file>
+      <line>37</line>
+    </frame>
+    <frame>
+      <ip>0x10938F</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>choice1</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>choice.c</file>
+      <line>21</line>
+    </frame>
+    <frame>
+      <ip>0x10CC9E</ip>
+      <obj>/home/maximilian/git/PA193_mnemonic_CGB/cmake-build-debug/PA193_mnemonic_CGB</obj>
+      <fn>main</fn>
+      <dir>/home/maximilian/git/PA193_mnemonic_CGB/main</dir>
+      <file>main.c</file>
+      <line>58</line>
+    </frame>
+  </stack>
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>Init</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:Init
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+</error>
+
+  <suppression>
+    <sname>insert_a_suppression_name_here</sname>
+    <skind>Memcheck:Leak</skind>
+    <skaux>match-leak-kinds: definite</skaux>
+    <sframe> <fun>malloc</fun> </sframe>
+    <sframe> <fun>Init</fun> </sframe>
+    <sframe> <fun>choice1</fun> </sframe>
+    <sframe> <fun>main</fun> </sframe>
+    <rawtext>
+<![CDATA[
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:Init
+   fun:choice1
+   fun:main
+}
+]]>
+    </rawtext>
+  </suppression>
+<errorcounts>
+  <pair>
+    <count>1</count>
+    <unique>0x6a</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x69</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x68</unique>
+  </pair>
+  <pair>
+    <count>11</count>
+    <unique>0x6</unique>
+  </pair>
+  <pair>
+    <count>11</count>
+    <unique>0x5</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x61</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x51</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x50</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x4f</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x4e</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x4d</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x49</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x45</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x35</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x34</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x31</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x2d</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x1d</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x1c</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x1b</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x1a</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x19</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x18</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x8</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x7</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x4</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x3</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x2</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x1</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x0</unique>
+  </pair>
+</errorcounts>
+
+<suppcounts>
+</suppcounts>
+
+</valgrindoutput>
+
+
