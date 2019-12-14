@@ -108,6 +108,11 @@ int main(void) {
 			printf("\nIt is not 1, 2, 3 or q to quit !\n");
 		}
 	}
+	//no free for entropy and choiceEntropy
+	free(entropy);
+	free(choiceEntropy);
+
+
 	free(choice);
 	free(mnemonic);
 	free(seed);

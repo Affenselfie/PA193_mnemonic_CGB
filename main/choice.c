@@ -113,6 +113,16 @@ void choice1(char* hexInput){
 	conv(resultChar, stringF);
 	Seed(stringF,strlen(string),"mnemonic",8,1,64);
 
+
+	free(tabDec);
+	free(tabBin);
+	free(bin);
+	free(binC);
+	free(resultChar);
+	free(stringF);
+	free(tmp);
+	free(string);
+	free(h);
 }
 
 void choice2(char* binInput){
@@ -195,6 +205,15 @@ void choice2(char* binInput){
 	resultChar = findWord(tabDec,"wordlist.txt", resultChar);
 	conv(resultChar, stringF);
 	Seed(stringF,strlen(string),"mnemonic",8,1,64);
+
+    free(tabDec);
+    free(tabBin);
+    free(bin);
+    free(binC);
+    free(resultChar);
+    free(stringF);
+    free(string);
+    free(h);
 }
 
 void choice3(char ** mnemonic){
@@ -221,6 +240,12 @@ void choice3(char ** mnemonic){
 	displayBin(hexArray,32,4);
 	printf("\n\nConvert To Hex : ");
 	binToHex(hexBin,128);
+
+    free(binArray);
+    free(hexArray);
+    free(decArray);
+    free(bin);
+    free(hexBin);
 
 }
 
