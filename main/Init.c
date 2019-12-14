@@ -54,6 +54,10 @@ int ** InitTab(size_t sizeH, size_t sizeL){
 int controlHexIn(char* hexInput){
 	char* hexTable = (char*)malloc(sizeof(char)*22);
 
+	if(strcmp(hexInput, "") == 0){
+	    return -1;
+	}
+
 	int cmp=0;
 
 	hexTable = "0123456789abcdefABCDEF";
@@ -75,6 +79,10 @@ for(unsigned int i=0; i<strlen(hexInput); i++){
 
 int controlBinIn(char* binInput){
 	char* binTable = (char*)malloc(sizeof(char)*2);
+
+    if(strcmp(binInput, "") == 0){
+        return -1;
+    }
 
 	int cmp=0;
 
