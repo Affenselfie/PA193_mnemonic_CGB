@@ -11,7 +11,7 @@
 
 void conv(char** tab, char* Conv){
 	int j=0, cpt=0;
-	for (int i=0; i<12; i++){
+	for (int i=0; i< sizeof(tab); i++){
 		j=0;
 		while(tab[i][j] != '\n' && tab[i][j] != '\0'){
 			Conv[cpt]=tab[i][j];
